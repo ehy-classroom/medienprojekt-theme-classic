@@ -1,11 +1,51 @@
 /*
 Theme Name: Medienprojekt Theme Classic
 Author: Enno Hyttrek
-Version: 1.0.2
+Version: 1.0.3
 */
 
+
+/*---------------------
+RESET
+---------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*---------------------
+COLOR
+---------------------*/
 body {
     background: hsl(200, 21%, 89%);
     color: hsl(200, 55%, 34%);
 }
 
+nav {
+    background: hsl(200, 55%, 34%);
+        color: hsl(200, 21%, 89%);
+}
+
+
+
+/*---------------------
+LAYOUT
+---------------------*/
+
+h1,h2,h3,h4,h5,h6,p {
+margin-bottom: 1rem;
+}
+
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 1em;
+    padding: 1rem 0;
+}
