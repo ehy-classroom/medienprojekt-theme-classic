@@ -7,7 +7,17 @@
     <?php wp_head(); ?>
 </head>
 <body>
-	<h1><?php the_title(); ?></h1>
+	<header>
+		<h1><?php the_title(); ?></h1>
+	</header>
+
+	<main>
+		<?php the_content(); ?>
+	</main>
+
+	<footer>
+		<p>©2025 Enno Hyttrek</p>
+	</footer>
     <?php wp_footer(); ?>
 </body>
 </html>

@@ -1,9 +1,11 @@
 /*
 Theme Name: Medienprojekt Theme Classic
 Author: Enno Hyttrek
-Version: 1.0.1
+Version: 1.0.2
 */
 
 body {
-    background: green;
+    background: hsl(200, 21%, 89%);
+    color: hsl(200, 55%, 34%);
 }
+
