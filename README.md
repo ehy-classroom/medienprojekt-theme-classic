@@ -71,7 +71,7 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - WordPress Loop mit ausführlichen HTML-Kommentaren für Einsteiger dokumentiert.
 - Intelligente kontextabhängige Inhaltsdarstellung: `the_excerpt()` vs `the_content()`.
 - Template-Struktur optimiert: Ein Container für alle Articles statt einzelne Container.
-- CSS Grid für Blog-Seite implementiert (`body.blog .container`).
+- CSS Grid für Blog-Seite implementiert (`body.blog main .container`).
 - Navigation mit Hover- und Active-States in Akzentfarbe.
 - Konditionaler Header: Homepage zeigt Site-Info, alle anderen Seiten zeigen Post-Titel.
 - Blog-Seite erhält "Blog" als Seitentitel im Header.
