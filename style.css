@@ -1,7 +1,7 @@
 /*
 Theme Name: Medienprojekt Theme Classic
 Author: Enno Hyttrek
-Version: 1.0.5
+Version: 1.0.6
 */
 
 
@@ -14,16 +14,22 @@ RESET
     box-sizing: border-box;
 }
 
-nav a {
+a {
     text-decoration: none;
     color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /*---------------------
 LAYOUT
 ---------------------*/
 
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,p,figure {
 margin-bottom: 1rem;
 }
 
@@ -38,6 +44,12 @@ nav.nav-bar .container {
     padding-bottom: 0;
 }
 
+body.blog main .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+}
+
 main {
     min-height: 70vh;
 }
@@ -50,7 +62,7 @@ footer {
 NAVIGATION
 ---------------------*/
 
-nav ul {
+nav.nav-bar ul {
     display: flex;
     list-style-type: none;
     gap: 1em;
@@ -94,7 +106,7 @@ Color Vars
     /***
     Accent Colors
     ***/
-    --accent-100: hsl(89, 55%, 55%);
+    --accent-100: hsl(89, 76%, 42%);
 
     /***
     Color Tokens
@@ -121,6 +133,21 @@ footer {
     background: var(--color-background-dark);
     color: var(--color-font-light);
 }
+
+
+/**-----
+Navigation Color Definitions
+-----**/
+
+a:hover {
+    color: var(--color-accent);
+}
+
+nav ul li.current-menu-item a,
+nav ul li.current_page_item a {
+    color: var(--color-accent);
+}
+
 
 
 /*---------------------

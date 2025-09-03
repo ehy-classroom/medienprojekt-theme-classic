@@ -21,7 +21,7 @@ Dieses WordPress PHP Theme wurde im Rahmen des Lehrmoduls Medienprojekt (W6) ent
 
 ---
 
-## Entwicklungsverlauf (Version 1.0.0 – 1.0.5)
+## Entwicklungsverlauf (Version 1.0.0 – 1.0.6)
 
 Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 
@@ -62,6 +62,20 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - `index.php` mit WordPress Loop und Container-Struktur erweitert.
 - Titel in Header von Post-Titel zu Website-Name geändert.
 - Navigation mit automatischem Container-div erweitert.
+
+### Version 1.0.6 (03.09.2025)
+- Beitragsbilder mit `has_post_thumbnail()` Abfrage und semantischem `<figure>`-Element implementiert.
+- Kontextabhängige Bildgrößen: `thumbnail` für Listen, `large` für Einzelansichten.
+- Titel und Beitragsbilder sind zu Permalinks verlinkt.
+- CTA-Button "Mehr" für Listenansichten hinzugefügt.
+- WordPress Loop mit ausführlichen HTML-Kommentaren für Einsteiger dokumentiert.
+- Intelligente kontextabhängige Inhaltsdarstellung: `the_excerpt()` vs `the_content()`.
+- Template-Struktur optimiert: Ein Container für alle Articles statt einzelne Container.
+- CSS Grid für Blog-Seite implementiert (`body.blog .container`).
+- Navigation mit Hover- und Active-States in Akzentfarbe.
+- Konditionaler Header: Homepage zeigt Site-Info, alle anderen Seiten zeigen Post-Titel.
+- Blog-Seite erhält "Blog" als Seitentitel im Header.
+- Post-Titel im Loop erscheinen nur noch auf Blog-Listenseite, nicht bei Einzelansichten.
 
 
 
