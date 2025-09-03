@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Medienprojekt Theme Classic</title>
-    <?php wp_head(); ?>
-</head>
-<body>
-	<header>
-		<h1><?php the_title(); ?></h1>
-	</header>
+<?php get_header(); ?>
 
-	<nav>
-		<?php
-		wp_nav_menu(array(
-			'theme_location' => 'main_menu',
-			'container'      => false,
-		));
-		?>
-	</nav>
+<header>
+	<h1><?php the_title(); ?></h1>
+</header>
 
-	<main>
-		<?php the_content(); ?>
-	</main>
+<nav>
+	<?php
+	wp_nav_menu(array(
+		'theme_location' => 'main_menu',
+		'container' => false,
+	));
+	?>
+</nav>
 
-	<footer>
-		<p>©2025 Enno Hyttrek</p>
-	</footer>
-    <?php wp_footer(); ?>
-</body>
-</html>
+<main>
+	<?php if (have_posts()):
+		while (have_posts()):
+			the_post();
+			the_content();
+		endwhile;
+	endif; ?>
+</main>
+
+<footer>
+	<p>©2025 Enno Hyttrek</p>
+</footer>
+
+<?php get_footer(); ?>
