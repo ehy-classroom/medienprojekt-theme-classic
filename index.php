@@ -84,6 +84,7 @@
 <footer>
 	<div class="container">
 		<p>©2025 Enno Hyttrek</p>
+		<p><?php echo wp_get_theme()->get('Name'); ?> - Version <?php echo wp_get_theme()->get('Version'); ?></p>
 	</div>
 </footer>
 

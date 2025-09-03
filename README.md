@@ -77,5 +77,10 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Blog-Seite erhält "Blog" als Seitentitel im Header.
 - Post-Titel im Loop erscheinen nur noch auf Blog-Listenseite, nicht bei Einzelansichten.
 
+### Version 1.0.7 (03.09.2025)
+- Theme-Beschreibung im CSS-Header hinzugefügt für professionelle Dokumentation und bessere Identifikation.
+- Dynamische Footer-Funktionalität implementiert: Theme-Name und Versionsnummer werden automatisch aus WordPress Theme-Metadaten geladen (`wp_get_theme()`).
+- Bildungskontext explizit dokumentiert - Theme ist speziell für Medienprojekt (W6) Kurs entwickelt und optimiert für Lernzwecke in Mediendesign-Studiengängen.
+
 
 
