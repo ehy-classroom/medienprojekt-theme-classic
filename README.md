@@ -9,17 +9,19 @@ Dieses WordPress PHP Theme wurde im Rahmen des Lehrmoduls Medienprojekt (W6) ent
 
 ## Aktueller Stand
 
-- Zentrales Stylesheet mit grundlegenden Layout- und Farbanpassungen
-- Vier vorbereitete Navigationsmenüs (Hauptnavigation, Sekundäre Navigation, Footer, Mobilmenü)
-- Einfache, semantische HTML5-Struktur in der `index.php`
-- Minimal gehalten, ideal als Basis für eigene Erweiterungen
-- Keine eigenen Templates für Archive, Seiten oder Beiträge
-- Keine erweiterten Funktionen wie Widgets, Customizer-Optionen oder Gutenberg-Blöcke
+- Professionelles Color System mit systematischen Graustufen und semantischen Color-Tokens
+- Inter-Font über lokale Font-Dateien eingebunden
+- Modulare CSS-Struktur: Reset, Layout, Navigation, Typography, Color System, Components, Responsive Design
+- Responsive Design mit durchdachten Breakpoints (580px, 60rem, 75rem)
+- WordPress Loop in `index.php` mit Container-Struktur
+- Vier vorbereitete Navigationsmenüs mit automatischer Container-Struktur
+- Minimale `theme.json` für Block Editor Unterstützung
+- Custom Template `blank.php` mit minimalem WP-Loop
 
 
 ---
 
-## Entwicklungsverlauf (Version 1.0.0 – 1.0.4)
+## Entwicklungsverlauf (Version 1.0.0 – 1.0.5)
 
 Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 
@@ -50,6 +52,16 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Custom Template `blank.php` mit minimalem WP-Loop hinzugefügt.
 - Theme-Setup-Funktion in `functions.php` ergänzt.
 - Title-Tag-Konflikt behoben: Manueller `<title>`-Tag entfernt, da WordPress diesen über `wp_head()` generiert.
+
+### Version 1.0.5 (03.09.2025)
+- Inter-Font über `fonts/inter/` Ordner hinzugefügt und in `functions.php` eingebunden.
+- Minimale `theme.json` für Block Editor Unterstützung angelegt.
+- CSS-Struktur komplett überarbeitet: Reset, Layout, Navigation, Typography, Color System, Components, Responsive Design.
+- Color System mit systematischen Graustufen und semantischen Color-Tokens implementiert.
+- Media Queries für Responsive Design angelegt (580px, 60rem, 75rem).
+- `index.php` mit WordPress Loop und Container-Struktur erweitert.
+- Titel in Header von Post-Titel zu Website-Name geändert.
+- Navigation mit automatischem Container-div erweitert.
 
 
 
