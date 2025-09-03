@@ -3,6 +3,7 @@
 // Stylesheet einbinden
 function medienprojekt_theme_classic_enqueue_styles() {
 	wp_enqueue_style('medienprojekt-theme-classic-style', get_stylesheet_uri());
+	wp_enqueue_style('inter-font', get_template_directory_uri() . '/fonts/inter/font-style.css');
 }
 add_action('wp_enqueue_scripts', 'medienprojekt_theme_classic_enqueue_styles');
 

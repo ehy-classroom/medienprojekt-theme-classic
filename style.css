@@ -1,7 +1,7 @@
 /*
 Theme Name: Medienprojekt Theme Classic
 Author: Enno Hyttrek
-Version: 1.0.4
+Version: 1.0.5
 */
 
 
@@ -20,21 +20,6 @@ nav a {
 }
 
 /*---------------------
-COLOR
----------------------*/
-body {
-    background: hsl(200, 21%, 89%);
-    color: hsl(200, 55%, 34%);
-}
-
-nav {
-    background: hsl(200, 55%, 34%);
-        color: hsl(200, 21%, 89%);
-}
-
-
-
-/*---------------------
 LAYOUT
 ---------------------*/
 
@@ -42,6 +27,28 @@ h1,h2,h3,h4,h5,h6,p {
 margin-bottom: 1rem;
 }
 
+.container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+nav.nav-bar .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+main {
+    min-height: 70vh;
+}
+
+footer {
+    min-height: 30vh;
+}
+
+/*---------------------
+NAVIGATION
+---------------------*/
 
 nav ul {
     display: flex;
@@ -49,3 +56,108 @@ nav ul {
     gap: 1em;
     padding: 1rem 0;
 }
+
+/*---------------------
+TYPOGRAPHY
+---------------------*/
+
+/**-----
+Basic Type Definitions
+-----**/
+
+:root {
+    font-family: 'Inter', sans-serif;
+}
+
+/*---------------------
+COLOR & STYLE
+---------------------*/
+
+/**-----
+Color Vars
+-----**/
+
+:root {
+    /***
+    Grayscale
+    ***/
+    --gray-100: hsl(199, 5%, 97%);
+    --gray-200: hsl(199, 8%, 89%);
+    --gray-300: hsl(199, 13%, 76%);
+    --gray-400: hsl(199, 21%, 63%);
+    --gray-500: hsl(199, 34%, 55%);
+    --gray-600: hsl(199, 42%, 42%);
+    --gray-700: hsl(199, 42%, 34%);
+    --gray-800: hsl(199, 55%, 21%);
+    --gray-900: hsl(199, 55%, 13%);
+
+    /***
+    Accent Colors
+    ***/
+    --accent-100: hsl(89, 55%, 55%);
+
+    /***
+    Color Tokens
+    ***/
+    --color-primary: var(--gray-800);
+    --color-accent: var(--accent-100);
+    --color-font-light: var(--gray-100);
+    --color-font-dark: var(--gray-900);
+    --color-background-light: var(--gray-200);
+    --color-background-dark: var(--gray-800);
+}
+
+/**-----
+Basic Color Definitions
+-----**/
+
+body {
+    background: var(--color-background-light);
+    color: var(--color-font-dark);
+}
+
+nav,
+footer {
+    background: var(--color-background-dark);
+    color: var(--color-font-light);
+}
+
+
+/*---------------------
+COMPONENTS
+---------------------*/
+
+
+
+/*---------------------
+RESPONSIVE DESIGN
+Breakpoints:
+580px
+60rem
+75rem
+---------------------*/
+
+@media (min-width: 580px) {
+    /* Tablet and up */
+
+}
+
+@media (min-width: 60rem) {
+    /* Desktop and up */
+
+}
+
+@media (min-width: 75rem) {
+    /* Large desktop and up */
+
+}
+
+
+
+
+
+/*---------------------
+DEV OVERRIDES
+---------------------*/
+
+
