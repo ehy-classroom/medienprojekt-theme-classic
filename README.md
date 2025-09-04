@@ -31,7 +31,7 @@ https://training.ennohyttrek.de/medienprojekt-wp-theming/
 
 ---
 
-## Entwicklungsverlauf (Version 1.0.0 – 1.0.6)
+## Entwicklungsverlauf
 
 Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 
