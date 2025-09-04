@@ -40,6 +40,12 @@ function mp_theme_setup() {
 
 	// Custom Logo Feature aktivieren (im Customizer verfügbar)
 	add_theme_support('custom-logo');
+
+	// Editor Styles aktivieren: Macht Theme-Styles im Block Editor verfügbar
+	add_theme_support('editor-styles');
+	
+	// Editor Stylesheet definieren: Haupt-Stylesheet auch für Editor verwenden
+	add_editor_style('style.css');
 }
 // HOOK: Wird ausgeführt, nachdem WordPress und alle Plugins geladen sind
 add_action('after_setup_theme', 'mp_theme_setup');
@@ -62,4 +68,77 @@ function mp_register_menus() {
 }
 // HOOK: Menüs werden nach Theme-Setup registriert
 add_action('after_setup_theme', 'mp_register_menus');
+
+/*
+ * === WEBSITE METADATEN DASHBOARD WIDGET ===
+ * Custom Dashboard Widget für Website-spezifische Metadaten
+ */
+function mp_add_website_meta_dashboard_widget() {
+	wp_add_dashboard_widget(
+		'mp_website_meta_widget',
+		'Website Metadaten',
+		'mp_website_meta_widget_content'
+	);
+}
+add_action('wp_dashboard_setup', 'mp_add_website_meta_dashboard_widget');
+
+// Dashboard Widget Inhalt
+function mp_website_meta_widget_content() {
+	// Aktuell gespeicherte Werte abrufen
+	$year = get_option('mp_website_year', date('Y'));
+	$owner = get_option('mp_website_owner', '');
+	$version = get_option('mp_website_version', '1.0');
+	
+	// Formular verarbeiten
+	if (isset($_POST['mp_update_meta'])) {
+		update_option('mp_website_year', sanitize_text_field($_POST['mp_website_year']));
+		update_option('mp_website_owner', sanitize_text_field($_POST['mp_website_owner']));
+		update_option('mp_website_version', sanitize_text_field($_POST['mp_website_version']));
+		echo '<div style="background: #d4edda; padding: 10px; margin-bottom: 15px; border-radius: 3px;">Metadaten erfolgreich aktualisiert!</div>';
+		
+		// Werte neu laden
+		$year = get_option('mp_website_year');
+		$owner = get_option('mp_website_owner');
+		$version = get_option('mp_website_version');
+	}
+	?>
+	
+	<form method="post">
+		<table style="width: 100%;">
+			<tr>
+				<td style="padding: 5px;"><label for="mp_website_year">Jahr der Erstveröffentlichung:</label></td>
+				<td style="padding: 5px;"><input type="number" id="mp_website_year" name="mp_website_year" value="<?php echo esc_attr($year); ?>" min="1990" max="<?php echo date('Y'); ?>" style="width: 100%;" /></td>
+			</tr>
+			<tr>
+				<td style="padding: 5px;"><label for="mp_website_owner">Name Website Owner:</label></td>
+				<td style="padding: 5px;"><input type="text" id="mp_website_owner" name="mp_website_owner" value="<?php echo esc_attr($owner); ?>" style="width: 100%;" /></td>
+			</tr>
+			<tr>
+				<td style="padding: 5px;"><label for="mp_website_version">Website Version:</label></td>
+				<td style="padding: 5px;"><input type="text" id="mp_website_version" name="mp_website_version" value="<?php echo esc_attr($version); ?>" style="width: 100%;" /></td>
+			</tr>
+		</table>
+		
+		<p style="margin-top: 15px;">
+			<?php submit_button('Metadaten aktualisieren', 'primary', 'mp_update_meta', false); ?>
+		</p>
+	</form>
+	
+	<hr style="margin: 15px 0;">
+	<p><strong>Vorschau Footer:</strong></p>
+	<p style="font-style: italic;">© <?php echo esc_html($year); ?> <?php echo esc_html($owner); ?></p>
+	<p style="font-style: italic;">Website Version: <?php echo esc_html($version); ?></p>
+	<?php
+}
+
+// Hilfsfunktion für Footer-Ausgabe
+function mp_get_website_meta($field) {
+	$defaults = array(
+		'year' => date('Y'),
+		'owner' => 'Website Owner',
+		'version' => '1.0'
+	);
+	
+	return get_option('mp_website_' . $field, $defaults[$field]);
+}
 

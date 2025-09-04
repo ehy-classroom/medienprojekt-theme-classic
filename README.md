@@ -17,8 +17,13 @@ https://training.ennohyttrek.de/medienprojekt-wp-theming/
 
 ---
 
-## Aktueller Stand
+## Aktueller Stand (Version 1.1.0)
 
+- **Template Parts System**: Modulare Architektur mit spezifischen Header-Templates für verschiedene Kontexte
+- **Editor Styles**: WYSIWYG-Kompatibilität zwischen Frontend und Backend für bessere Content-Editing-Erfahrung
+- **Multi-Column CSS**: Designer-fokussiertes System mit globalen Patterns und responsiven Implementierungen
+- **Website-Metadaten Dashboard**: Dynamische Backend-Verwaltung für Untertitel, Autor und Jahr
+- **Single.php Template**: Dediziertes Template für Einzelbeiträge ohne komplexe Konditionen
 - Professionelles Color System mit systematischen Graustufen und semantischen Color-Tokens
 - Inter-Font über lokale Font-Dateien eingebunden
 - Modulare CSS-Struktur: Reset, Layout, Navigation, Typography, Color System, Components, Responsive Design
@@ -35,26 +40,26 @@ https://training.ennohyttrek.de/medienprojekt-wp-theming/
 
 Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 
-### Version 1.0.0 (28.08.2025)
+### Version 1.0.0 (28.08.2025) - Initial Setup
 - Initiales Theme-Setup: Die Grundstruktur des Themes wurde angelegt.
 - Die Dateien `style.css`, `index.php` und `functions.php` wurden erstellt.
 - In der `functions.php` wurde eine Funktion ergänzt, um das zentrale Stylesheet (`style.css`) korrekt einzubinden.
 
-### Version 1.0.1 (28.08.2025)
+### Version 1.0.1 (28.08.2025) - Erste PHP Integration
 - Erste PHP-Elemente wurden in die `index.php` eingefügt, um dynamische Inhalte von WordPress anzuzeigen.
 
-### Version 1.0.2 (01.09.2025)
+### Version 1.0.2 (01.09.2025) - Semantisches HTML5 + Styling
 - Die `index.php` wurde weiter verbessert:
 	- Die Funktion `the_content()` wurde integriert, um den eigentlichen Seiteninhalt auszugeben.
 	- Die HTML-Struktur wurde auf semantisches HTML5 umgestellt (Header, Main, Footer etc.).
 - Erste Farb- und Typografie-Styles wurden in der `style.css` ergänzt.
 
-### Version 1.0.3 (01.09.2025)
+### Version 1.0.3 (01.09.2025) - Navigation System
 - In der `functions.php` wurden vier Navigationsmenüs registriert: Hauptnavigation, Sekundäre Navigation, Footer Navigation und Mobilmenü.
 - In der `index.php` wurde die Menüposition für das Hauptmenü eingebunden und das WordPress-Menüsystem (`wp_nav_menu`) genutzt.
 - Die CSS-Styles wurden weiter verbessert.
 
-### Version 1.0.4 (03.09.2025)
+### Version 1.0.4 (03.09.2025) - Template Struktur + Blank Template
 - Das Theme wurde in die Standard-Template-Struktur aufgeteilt: `header.php`, `index.php`, `footer.php`.
 - `header.php` enthält nur bis einschließlich `<body>` (jetzt mit `body_class()`).
 - `footer.php` enthält nur `wp_footer()` und die schließenden Tags.
@@ -63,7 +68,7 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Theme-Setup-Funktion in `functions.php` ergänzt.
 - Title-Tag-Konflikt behoben: Manueller `<title>`-Tag entfernt, da WordPress diesen über `wp_head()` generiert.
 
-### Version 1.0.5 (03.09.2025)
+### Version 1.0.5 (03.09.2025) - Design System + Typography
 - Inter-Font über `fonts/inter/` Ordner hinzugefügt und in `functions.php` eingebunden.
 - Minimale `theme.json` für Block Editor Unterstützung angelegt.
 - CSS-Struktur komplett überarbeitet: Reset, Layout, Navigation, Typography, Color System, Components, Responsive Design.
@@ -73,7 +78,7 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Titel in Header von Post-Titel zu Website-Name geändert.
 - Navigation mit automatischem Container-div erweitert.
 
-### Version 1.0.6 (03.09.2025)
+### Version 1.0.6 (03.09.2025) - WordPress Loop + Konditionale Logik
 - Beitragsbilder mit `has_post_thumbnail()` Abfrage und semantischem `<figure>`-Element implementiert.
 - Kontextabhängige Bildgrößen: `thumbnail` für Listen, `large` für Einzelansichten.
 - Titel und Beitragsbilder sind zu Permalinks verlinkt.
@@ -87,13 +92,28 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Blog-Seite erhält "Blog" als Seitentitel im Header.
 - Post-Titel im Loop erscheinen nur noch auf Blog-Listenseite, nicht bei Einzelansichten.
 
-### Version 1.0.7 (03.09.2025)
+### Version 1.0.7 (03.09.2025) - Dynamische Theme-Metadaten
 - Theme-Beschreibung im CSS-Header hinzugefügt für professionelle Dokumentation und bessere Identifikation.
 - Dynamische Footer-Funktionalität implementiert: Theme-Name und Versionsnummer werden automatisch aus WordPress Theme-Metadaten geladen (`wp_get_theme()`).
 - Bildungskontext explizit dokumentiert - Theme ist speziell für Medienprojekt (W6) Kurs entwickelt und optimiert für Lernzwecke in Mediendesign-Studiengängen.
 
 ### Version 1.0.8 (04.09.2025) - Didaktische Kommentierung
 - Einfügen von erklärenden Kommentaren in index.php, functions.php und style.css für besseres Verständnis der WordPress Template-Struktur und -Funktionen
+
+### Version 1.1.0 (04.09.2025) - Template Parts System + Advanced Features
+- Editor Styles Support: Implementierung von `add_theme_support('editor-styles')` und `add_editor_style('style.css')` für 80-90% WYSIWYG-Kompatibilität zwischen Frontend und Backend
+- Multi-Column CSS-System: Designer-fokussierter "Dashboard"-Ansatz mit globalen Patterns vor responsiven Implementierungen
+- Single.php Template: Sauberes Template für Einzelbeiträge ohne komplexe Konditionen aus index.php
+- Website-Metadaten Dashboard Widget: Dynamische Verwaltung von Untertitel, Autor und Jahr über WordPress Backend mit Options API Integration
+- Template Parts System: Vollständige modulare Theme-Architektur implementiert:
+  - `part-header-index-a.php`: Spezifischer Header für index.php mit konditionaler Logik
+  - `part-header-single-a.php`: Vereinfachter Header für single.php
+  - `part-main-nav-a.php`: Wiederverwendbare Hauptnavigation
+  - `part-footer-a.php`: Modularer Footer mit Website-Metadaten Integration
+- DRY-Prinzip: Code-Duplikation zwischen Templates eliminiert
+- Alphabetische Namenskonvention: Template-Parts mit a/b/c-Varianten für strukturelle Erweiterbarkeit
+- Modulare Architektur: Theme von monolithisch zu modular transformiert für bessere Wartbarkeit und Skalierbarkeit
+- Helper-Funktion `mp_get_website_meta()` für einfachen Zugriff auf Metadaten in Templates
 
 
 

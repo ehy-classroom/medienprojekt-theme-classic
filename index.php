@@ -17,11 +17,26 @@ Dieser Code ist als "eierlegende Wollmilchsau" konzipiert:
 Durch intelligente Conditional Logic passt sich EIN Template an alle
 Kontexte an - ideal für Lern-Themes und einfache Websites.
 
-Der Code dieses Templates kann dadurch natürlich schnell sehr komplex werden. Die Erklärungen in den Kommentaren versuchen, die wichtigsten Aspekte zu beleuchten und Einsteigern zu helfen.
+Der Code dieses Templates kann dadurch natürlich schnell sehr komplex werden. 
+Die Erklärungen in den Kommentaren versuchen, die wichtigsten Aspekte zu 
+beleuchten und Einsteigern zu helfen. Komplexe Logikblöcke (Header, Navigation, 
+Footer) wurden bereits in Template-Parts ausgelagert.
 
-WICHTIG: Das Anlegen spezifischer Templates (single.php, page.php, archive.php etc.)
-macht dennoch eine Menge Sinn und sollte in einer weiteren Ausbaustufe des
-Themes erfolgen sodass die index.php nur noch als Fallback benötigt wird.
+=== TEMPLATE PARTS SYSTEM ===
+
+Dieses Theme nutzt ein modulares Template-Parts-System für bessere
+Code-Organisation und Wartbarkeit:
+
+- Header: part-header-index-a.php (spezifisch für index.php)
+- Navigation: part-main-nav-a.php (wiederverwendbar)
+- Footer: part-footer-a.php (mit Website-Metadaten)
+
+Vorteile: DRY-Prinzip, spezifische Templates für jeden Kontext,
+Erweiterbarkeit durch a/b/c-Varianten, saubere Trennung der Logik.
+
+AUSBAUSTUFE: Spezifische Templates wie single.php wurden bereits implementiert
+und nutzen ebenfalls das Template-Parts-System. Die index.php fungiert weiterhin
+als universelles Fallback für alle nicht-spezifisch abgedeckten Seitentypen.
 -->
 
 <?php 
@@ -29,52 +44,9 @@ Themes erfolgen sodass die index.php nur noch als Fallback benötigt wird.
 get_header(); 
 ?>
 
-<!-- 
-==== KONDITIONALER HEADER ====
-Hier wird intelligent entschieden, was im Header angezeigt werden soll:
-- Startseite: Site-Name und Beschreibung prominent
-- Alle anderen Seiten: Site-Name klein, Post-Titel oder "Blog" groß
--->
-<header>
-	<div class="container">
-		<?php if (is_front_page() && !is_home()): ?>
-			<!-- FALL 1: Statische Startseite (nicht Blog-Homepage) -->
-			<p class="my-site-sub-title"><?php bloginfo('description'); ?></p>
-			<h1 class="my-site-title"><?php bloginfo('name'); ?></h1>
-		<?php else: ?>
-			<!-- FALL 2: Blog-Seite, Einzelbeiträge, statische Seiten -->
-			<p class="my-site-title"><?php bloginfo('name'); ?></p>
-			<h1 class="my-post-title">
-				<?php 
-				// Weitere Kondition: Blog-Übersicht vs. Einzelseite
-				if (is_home()) {
-					// Blog-Übersichtsseite zeigt "Blog" als Titel
-					echo 'Blog';
-				} else {
-					// Alle anderen Seiten zeigen den tatsächlichen Seitentitel
-					the_title();
-				}
-				?>
-			</h1>
-	
-		<?php endif; ?>
-	</div>
-</header>
+<?php get_template_part('template-parts/part-header-index', 'a'); ?>
 
-<!-- 
-==== NAVIGATION ====
-WordPress Navigation-System: Automatische HTML-Generierung aus Backend-Menüs
--->
-<nav class="nav-bar main-nav">
-	<?php
-	wp_nav_menu(array(
-		'theme_location' => 'main_menu',        // Welches registrierte Menü verwenden?
-		'container' => 'div',                   // HTML-Container um das Menü
-		'container_class' => 'container',       // CSS-Klasse für Container
-		'menu_class' => 'nav-bar-nav nav-bar-nav-list', // CSS-Klasse für <ul>-Element
-	));
-	?>
-</nav>
+<?php get_template_part('template-parts/part-main-nav', 'a'); ?>
 
 <main>
 	<!-- 
@@ -141,14 +113,7 @@ WordPress Navigation-System: Automatische HTML-Generierung aus Backend-Menüs
 	<?php endif; // Ende der Posts-Prüfung ?>
 </main>
 
-<footer>
-	<div class="container">
-		<!-- Copyright hard-coded: Normalerweise schlecht (nicht editierbar), aber hier akzeptabel da Theme-spezifisch, nicht Inhalt -->
-		<p>©2025 Enno Hyttrek</p>
-		<!-- Theme Name/Version automatisiert: WordPress liest Theme-Metadaten aus style.css Header -->
-		<p><?php echo wp_get_theme()->get('Name'); ?> - Version <?php echo wp_get_theme()->get('Version'); ?></p>
-	</div>
-</footer>
+<?php get_template_part('template-parts/part-footer', 'a'); ?>
 
 <?php 
 // WordPress Template-System: Lädt footer.php automatisch ein (welche den wp_footer() Hook + schließende HTML-Tags enthält)
