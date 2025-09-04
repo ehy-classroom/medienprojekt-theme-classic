@@ -5,6 +5,16 @@
 
 Dieses WordPress PHP Theme wurde im Rahmen des Lehrmoduls Medienprojekt (W6) entwickelt, um das Code-basierte Arbeiten mit WordPress zu üben und zu vertiefen. Es dient als Ausgangspunkt für die Entwicklung individueller WordPress-Themes und fördert das Verständnis für die Struktur und Funktionsweise von WordPress.
 
+Beim Coding wurde intensiv auf die Unterstützung von GitHub Copilot gesetzt, um den Entwicklungsprozess zu optimieren und effizienter zu gestalten, sowie dabei zu lernen und zu üben, wie KI Tools in Entwicklung und UI Design integriert werden können.
+
+Das Theme ist work-in-progress und wird kontinuierlich weiterentwickelt.
+
+Die Methodik bei der Entwicklung ist in geweisser Weise hybrid, da nicht konsequent auf best practices aus der Softwareentwicklung geachtet wird (beispielsweise beim Git/GitHub Workflow, Dokumentation oder der Versionierung). Dies dient auch dazu, Stakeholdern aus Bereichen wie Mediengestaltung und UI/UX-Design einen leichteren Zugang zu ermöglichen und die Zusammenarbeit zu fördern.
+
+Das Theme ist auf folgender Testseite (die gleichzeitig dafür gedacht ist, sich sukzessive mit Inhalten zum Thema WordPress Themeentwicklung zu füllen) zum Test eingesetzt:
+
+https://training.ennohyttrek.de/medienprojekt-wp-theming/
+
 ---
 
 ## Aktueller Stand
@@ -81,6 +91,9 @@ Die Entwicklung erfolgte ausschließlich auf dem Branch `main`.
 - Theme-Beschreibung im CSS-Header hinzugefügt für professionelle Dokumentation und bessere Identifikation.
 - Dynamische Footer-Funktionalität implementiert: Theme-Name und Versionsnummer werden automatisch aus WordPress Theme-Metadaten geladen (`wp_get_theme()`).
 - Bildungskontext explizit dokumentiert - Theme ist speziell für Medienprojekt (W6) Kurs entwickelt und optimiert für Lernzwecke in Mediendesign-Studiengängen.
+
+### Version 1.0.8 (04.09.2025) - Didaktische Kommentierung
+- Einfügen von erklärenden Kommentaren in index.php, functions.php und style.css für besseres Verständnis der WordPress Template-Struktur und -Funktionen
 
 
 
