@@ -2,7 +2,7 @@
 Theme Name: Medienprojekt Theme Classic
 Author: Enno Hyttrek
 Author URI: https://ennohyttrek.de
-Version: 1.1.0
+Version: 1.1.1
 Theme URI: https://github.com/ehy-classroom/medienprojekt-theme-classic
 Description: WordPress PHP Theme für das Lehrmodul Medienprojekt (W6) zur Übung des Code-basierten Arbeitens mit WordPress. Dient als Ausgangspunkt für die Entwicklung individueller WordPress-Themes und fördert das Verständnis für die Struktur und Funktionsweise von WordPress.
 */
@@ -99,7 +99,7 @@ Basic Type Definitions
 }
 
 /**-----
-Type Sizes
+Global Type Sizes
 -----**/
 
 body {
@@ -109,6 +109,15 @@ body {
 
 footer {
     font-size: 0.875em;
+}
+
+
+/**-----
+Typography Vars
+-----**/
+
+:root {
+
 }
 
 /*---------------------
